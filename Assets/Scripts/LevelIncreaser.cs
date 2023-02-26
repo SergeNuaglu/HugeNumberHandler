@@ -30,19 +30,19 @@ public class LevelIncreaser : MonoBehaviour
     {
         int minRankIndex = 0;
 
-         for (int i = 0; i < _clickCount-1; i++)
+         /*for (int i = 0; i < _clickCount-1; i++)
          {
              if (_currentRank <= minRankIndex)
                  IncreasePriceByPowerFunction();
              else
                  IncreasePriceByPercent();
-         }
+         }*/
 
 
-        /*if (_currentRank <= minRankIndex)
+        if (_currentRank <= minRankIndex)
             IncreasePriceByPowerFunction();
         else
-            IncreasePriceByPercent();*/
+            IncreasePriceByPercent();
     }
 
     private void IncreasePriceByPowerFunction()
