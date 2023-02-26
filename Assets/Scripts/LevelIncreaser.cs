@@ -8,6 +8,7 @@ public class LevelIncreaser : MonoBehaviour
 {
     [SerializeField] private TMP_Text _price;
     [SerializeField] private TMP_Text _level;
+    [SerializeField] private int _clickCount;
 
     private int _levelNumber = 1;
     private int _currentRank = 0;
@@ -29,6 +30,15 @@ public class LevelIncreaser : MonoBehaviour
     {
         int minRankIndex = 0;
 
+        /* for (int i = 0; i < _clickCount-1; i++)
+         {
+             if (_currentRank <= minRankIndex)
+                 IncreasePriceByPowerFunction();
+             else
+                 IncreasePriceByPercent();
+         }
+        */
+
         if (_currentRank <= minRankIndex)
             IncreasePriceByPowerFunction();
         else
@@ -44,9 +54,9 @@ public class LevelIncreaser : MonoBehaviour
 
     public void IncreasePriceByPercent()
     {
-        float rankСoefficient = 0.015f * _currentRank;
+        float rankСoefficient = 0.052f + (float)_currentRank / 1000;
         float stepPercent = 0.23f - rankСoefficient;
-       _nextLevelCost += _nextLevelCost * stepPercent;
+        _nextLevelCost += _nextLevelCost * stepPercent;
         _levelNumber++;
         Render();
     }
@@ -61,7 +71,7 @@ public class LevelIncreaser : MonoBehaviour
             if (_currentRank >= _ranks.Length - 1)
                 _currentRank = _ranks.Length - 1;
         }
-        
+
         _nextLevelCost = (float)Math.Round(_nextLevelCost, 1);
         _price.text = _nextLevelCost.ToString() + _ranks[_currentRank];
         _level.text = _levelNumber.ToString();
