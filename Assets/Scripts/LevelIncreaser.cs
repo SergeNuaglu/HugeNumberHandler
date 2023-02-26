@@ -39,7 +39,7 @@ public class LevelIncreaser : MonoBehaviour
          }
 
 
-       /* if (_currentRank <= minRankIndex)
+        /*if (_currentRank <= minRankIndex)
             IncreasePriceByPowerFunction();
         else
             IncreasePriceByPercent();*/
@@ -54,8 +54,7 @@ public class LevelIncreaser : MonoBehaviour
 
     public void IncreasePriceByPercent()
     {
-        float rankСoefficient = 0.0521f + (float)_currentRank / 1000;
-        float stepPercent = 0.23f - rankСoefficient;
+        float stepPercent = 0.215f;
         _nextLevelCost += _nextLevelCost * stepPercent;
         _levelNumber++;
         Render();
