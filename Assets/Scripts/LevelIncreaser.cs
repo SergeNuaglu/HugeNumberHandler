@@ -30,31 +30,31 @@ public class LevelIncreaser : MonoBehaviour
     {
         int minRankIndex = 0;
 
-        /* for (int i = 0; i < _clickCount-1; i++)
+         for (int i = 0; i < _clickCount-1; i++)
          {
              if (_currentRank <= minRankIndex)
                  IncreasePriceByPowerFunction();
              else
                  IncreasePriceByPercent();
          }
-        */
 
-        if (_currentRank <= minRankIndex)
+
+       /* if (_currentRank <= minRankIndex)
             IncreasePriceByPowerFunction();
         else
-            IncreasePriceByPercent();
+            IncreasePriceByPercent();*/
     }
 
     private void IncreasePriceByPowerFunction()
     {
-        _nextLevelCost = _minLevelCost * Mathf.Pow(++_levelNumber, 2.6f + 0.013f * _levelNumber);
+        _nextLevelCost = _minLevelCost * Mathf.Pow(++_levelNumber, _baseDegree + 0.013f * _levelNumber);
         _nextLevelCost = (float)Math.Round(_nextLevelCost, 1);
         Render();
     }
 
     public void IncreasePriceByPercent()
     {
-        float rankСoefficient = 0.052f + (float)_currentRank / 1000;
+        float rankСoefficient = 0.0521f + (float)_currentRank / 1000;
         float stepPercent = 0.23f - rankСoefficient;
         _nextLevelCost += _nextLevelCost * stepPercent;
         _levelNumber++;

@@ -703,6 +703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _price: {fileID: 1243315310}
   _level: {fileID: 17729880}
+  _clickCount: 1100
 --- !u!114 &1166077946
 MonoBehaviour:
   m_ObjectHideFlags: 0
